@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "4" > /home/ubuntu/workers.txt
+echo "http://192.168.2.109:8080/hls/test.m3u8" > /home/ubuntu/playlist_url.txt
+#mkdir /home/ubuntu/.ssh
+#chown ubuntu:ubuntu /home/ubuntu/.ssh
+#chmod 0700 /home/ubuntu/.ssh
+echo "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAAGES3ZfLPG4GAb7n1RBoILpA5n3NVNbChVUUVEPMllJeqMGL0g3j+/QzXz5rDhfSekP2vU55GdlK8yChfZhvAOaAEWbnJwWQWIhEU/mN4mlwH6ws4hT+xW1SnVJht8KdbJVYBa9ne98pFY+831gWEjx65DekneRrdjpE/TJIrAlZxHRw== he@he" >> /home/ubuntu/.ssh/authorized_keys
+#chown ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
+#
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts

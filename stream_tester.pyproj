@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="iso8601\iso8601.py" />
+    <Compile Include="iso8601\test_iso8601.py" />
+    <Compile Include="iso8601\__init__.py" />
     <Compile Include="m3u8\httpclient.py" />
     <Compile Include="m3u8\mixins.py" />
     <Compile Include="m3u8\model.py" />
@@ -30,7 +33,17 @@
     <Compile Include="stream_tester.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="iso8601\" />
+    <Folder Include="iso8601\__pycache__\" />
     <Folder Include="m3u8\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ec2_userdata.txt">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="iso8601\py.typed" />
+    <Content Include="iso8601\__pycache__\iso8601.cpython-38.pyc" />
+    <Content Include="iso8601\__pycache__\__init__.cpython-38.pyc" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
