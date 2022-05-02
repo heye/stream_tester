@@ -5,6 +5,7 @@ from multiprocessing import Process
 import threading
 import time
 import sys
+import random
 
 class StreamTester:
     def __init__(self, playlist_url):
@@ -87,6 +88,7 @@ def main(args):
     processes = []
     for i in range(int(workers)):
         print("START WORKER " + str(i))
+        time.sleep(random.random())
 
         p = Process(target=run_worker, args=(playlist_url,))
         p.start()
