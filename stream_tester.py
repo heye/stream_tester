@@ -54,16 +54,41 @@ def run_worker(playlist_url):
     streamTester = StreamTester(playlist_url)
     streamTester.run()
 
+
+def get_workers() -> int:
+    try:
+        with open("/home/ubuntu/workers.txt") as f:
+            return int(str(f.read()))
+    except:
+        return 0
+
+def get_playlist_url() -> int:
+    try:
+        with open("/home/ubuntu/playlist_url.txt") as f:
+            return str(f.read())
+    except:
+        return 0
+
 def main(args):
-    if len(args) != 3:
+    workers = get_workers()
+    playlist_url = get_playlist_url()
+    
+    if (workers == 0 or not playlist_url) and len(args) != 3:
         print("USAGE: python3.x stream_tester.py <WORKERS> <PLAYLIST_URL>")
         return
 
+    if workers == 0:
+        workers = args[1]
+
+    if not playlist_url:
+        playlist_url = args[2]
+
+
     processes = []
-    for i in range(int(args[1])):
+    for i in range(int(workers)):
         print("START WORKER " + str(i))
 
-        p = Process(target=run_worker, args=(args[2],))
+        p = Process(target=run_worker, args=(playlist_url,))
         p.start()
         processes.append(p)
 
