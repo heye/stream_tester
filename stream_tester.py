@@ -44,7 +44,7 @@ class StreamTester:
         url = self.segment_base_url + uri
         print("load: " + url)
 
-        with urlopen("https://www.example.com") as response:
+        with urlopen(url) as response:
             body = response.read()
 
             print("segment size: " + str(len(body)))
@@ -77,10 +77,8 @@ def main(args):
         print("USAGE: python3.x stream_tester.py <WORKERS> <PLAYLIST_URL>")
         return
 
-    if workers == 0:
+    if len(args) == 3:
         workers = args[1]
-
-    if not playlist_url:
         playlist_url = args[2]
 
 
