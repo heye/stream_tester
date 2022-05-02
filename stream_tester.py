@@ -28,6 +28,8 @@ class StreamTester:
             tick_duration = time.time()-start
             if tick_duration < playlist.target_duration:
                 time.sleep(playlist.target_duration - tick_duration)
+            else:
+                print("SEGEMENT DELAY TICK DURATION: " + str(tick_duration))
             
     def tick(self):
         playlist = m3u8.load(self.playlist_uri)  # this could also be an absolute filename
@@ -42,12 +44,12 @@ class StreamTester:
     def load_segment(self, uri: str):
         #just load and discard
         url = self.segment_base_url + uri
-        print("load: " + url)
+        #print("load: " + url)
 
         with urlopen(url) as response:
             body = response.read()
 
-            print("segment size: " + str(len(body)))
+            #print("segment size: " + str(len(body)))
 
 
 def run_worker(playlist_url):
