@@ -49,7 +49,7 @@ class StreamTester:
         with urlopen(url) as response:
             body = response.read()
 
-            #print("segment size: " + str(len(body)))
+            print("segment loaded - size: " + str(len(body)))
 
 
 def run_worker(playlist_url):
