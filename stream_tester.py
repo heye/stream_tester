@@ -6,6 +6,7 @@ import threading
 import time
 import sys
 import random
+import traceback
 
 class StreamTester:
     def __init__(self, playlist_url):
@@ -25,7 +26,11 @@ class StreamTester:
 
         while True:
             start = time.time()
-            self.tick()
+            try:
+                self.tick()
+            except:
+                print("ERROR")
+                traceback.print_exc()
             tick_duration = time.time()-start
             if tick_duration < playlist.target_duration:
                 time.sleep(playlist.target_duration - tick_duration)

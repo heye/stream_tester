@@ -8,4 +8,6 @@ echo "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBA
 #chown ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
 #
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-git clone 
+git clone https://github.com/heye/stream_tester.git
+cd stream_tester
+start_in_background.sh
